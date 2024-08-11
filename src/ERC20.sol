@@ -142,13 +142,6 @@ contract ERC20 is Context, Pausable, Nonces, EIP712{
         _update(address(0), account, value);
     }
 
-    function _burn(address account, uint256 value) internal {
-        if (account == address(0)) {
-            revert ERC20InvalidSender(address(0));
-        }
-        _update(account, address(0), value);
-    }
-
     function _approve(address owner, address spender, uint256 value) internal {
         _approve(owner, spender, value, true);
     }
